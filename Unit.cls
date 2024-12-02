@@ -80,11 +80,14 @@ Public Property Get Mana() As Integer: Mana = p_Mana: End Property
 
 
 Public Function Move(X As Integer, Y As Integer) As Integer
-    If WalkAble(CurrentMap, X Y) Then
+    Move = GetTile(CurrentMap, p_X + X, p_Y + Y)
+    If Walkable(Move) Then
         p_X = p_X + X
         p_Y = p_Y + Y
+    ElseIf IsEnemy(p_Type, p_X + X, p_Y + y) Then
+        
+    Else
     End If
-    Move = WorldMap(X, Y)
 End Function
 
 Public Function MovePath(Path() As Integer, Index As Integer) As Integer
